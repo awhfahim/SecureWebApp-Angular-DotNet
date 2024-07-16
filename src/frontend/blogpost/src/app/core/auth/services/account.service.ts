@@ -1,5 +1,5 @@
 import {computed, inject, Injectable, signal} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {firstValueFrom} from "rxjs";
 import {MessageService} from "../../../shared/message/message.service";
