@@ -21,7 +21,7 @@ export class AccountService {
   isLoggedIn = computed(() => !this.user);
 
   public async checkExpirationOfJwt(){
-    const user = this.jwtCookieToUser();
+    const user = await this.jwtCookieToUser();
     return user != null;
   }
 

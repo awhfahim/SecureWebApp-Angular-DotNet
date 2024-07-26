@@ -13,12 +13,13 @@ export const routes: Routes = [
    },
   {
     path: 'about',
+    canActivate: [AuthGuard],
     loadComponent: () => import('./public/about/about.component').then(x => x.AboutComponent)
   },
   {
     path: 'home',
-    loadComponent: () => import('./public/home/home.component').then(x => x.HomeComponent),
     canActivate: [AuthGuard],
+    loadComponent: () => import('./public/home/home.component').then(x => x.HomeComponent)
   },
   {
     path: '**',
