@@ -6,6 +6,7 @@ import {MessageService} from "../../../shared/message/message.service";
 import {loginModel} from "../models/login.model";
 import {HttpResponseModel} from "../models/http-response.model";
 import {AuthClaim, User} from "../models/user.model";
+import { signupModel } from '../models/signup.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,16 @@ export class AccountService {
   public async checkExpirationOfJwt(){
     const user = await this.jwtCookieToUser();
     return user != null;
+  }
+
+  async signup(dto: signupModel){
+    try{
+      await firstValueFrom(this.http.post(environment.V1.SIGN_UP, dto));
+      return HttpResponseModel.Ok;
+    }
+    catch(err){
+      return HttpResponseModel.InternalServerError;
+    }
   }
 
   async login(dto: loginModel) : Promise<HttpResponseModel> {

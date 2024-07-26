@@ -1,10 +1,9 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {NonNullableFormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {passwordValidator} from "./password.validator";
 import {MessageService} from "../../../../shared/message/message.service";
 import {RouterLink} from "@angular/router";
 import {AccountService} from "../../services/account.service";
-import {loginModel} from "../../models/login.model";
 import {LoadingService} from "../../../../shared/loading/loading.service";
 
 @Component({

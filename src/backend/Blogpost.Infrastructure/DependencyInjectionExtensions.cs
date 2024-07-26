@@ -1,5 +1,6 @@
 ﻿using Blogpost.Application.Common.Providers;
 using Blogpost.Infrastructure.Common.Providers;
+using Blogpost.Infrastructure.Identity.Services;
 using Blogpost.Infrastructure.Identity.Tokens;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,5 +14,7 @@ public static class DependencyInjectionExtensions
     {
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         services.AddSingleton<ITokenService, TokenService>();
+        services.AddSingleton<IGuidProvider, GuidProvider>();
+        services.AddScoped<IIdentityService, IdentityService>();
     }
 }
